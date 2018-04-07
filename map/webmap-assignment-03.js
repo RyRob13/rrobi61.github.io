@@ -14,22 +14,15 @@ let marker = L.marker([29.76, -95.372482], {icon: myTreeIcon}).addTo(Ryanmap);
 
 
 
-let myCoords = [
+let myCoordinates = [
   [29.757676, -95.372482],
   [29.757, -95.372],
   [29.75, -95.37]
 ]
 
-let myStyle = {
+let myColors = {
   color: 'red',
   fillColor: 'orange'
 }
 
-let myPolygon = L.polygon(myCoords, myStyle).addTo(Ryanmap)
-
-polygon.bindPopup('Downtown Houston')
-marker.bindPopup('Sam Houston Park')
-
-Ryanmap.on('click', function (event) {
-  console.log('You clicked the map at ' + event.latlng)
-})
+let myPolygon = L.polygon(myCoordinates, myColors).addTo(Ryanmap)

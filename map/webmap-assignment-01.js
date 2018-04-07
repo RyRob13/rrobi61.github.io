@@ -9,6 +9,15 @@ let polygon = L.polygon([
   [29.75, -95.37]
 ]).addTo(Ryanmap);
 
+let latlngs = [
+  [45.51, -122.68],
+  [37.77, -122.43],
+  [34.04, -118.2]
+];
+
+let polyline = L.polyline(latlngs, {color: 'blue'}).addTo(Ryanmap);
+
+
 polygon.bindPopup('Downtown Houston')
 marker.bindPopup('Sam Houston Park')
 
