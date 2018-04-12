@@ -14,8 +14,13 @@ let myBasemaps = {
   'Gray Basemap' : myGraymap1,
   'Topographic Basemap' : myTopomap1
 }
+let newOrleans = L.marker([30, -90]).addTo(Ryanmap)
 
-L.control.layers(myBasemaps).addTo(Ryanmap)
+let opLayers = {
+  "New Orleans": newOrleans
+}
+
+L.control.layers(myBasemaps, opLayers).addTo(Ryanmap)
 
 let stateStyle = function (state) {
   let population = state.properties.POPULATION
