@@ -14,10 +14,16 @@ let myBasemaps = {
   'Street Basemap' : myStreetmap1
 }
 
-let newOrleans = L.marker([30, -90]).addTo(Finalmap)
+let myPinIcon = L.icon({
+  iconUrl: 'PIN.png',
+  iconSize: [25, 40], // size of the icon
+  iconAnchor: [12.5, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+})
 
+let batonRouge = L.marker([30.471165, -91.147385], {icon: myPinIcon}).addTo(Finalmap);
 let opLayers = {
-  "New Orleans": newOrleans
+  "Birthplace: Baton Rouge": batonRouge
 }
 
 L.control.layers(myBasemaps, opLayers).addTo(Finalmap)
@@ -64,9 +70,17 @@ let createPopup = function (state, layer) {
   layer.bindPopup('Poulation of ' + name + ': ' + population + '<br>Largest state (California): 38986171')
 }
 
+function stateFilter (state) {
+  let name = state.properties.STATE_NAME
+  if (name == 'Louisiana' || name == 'Mississippi' || name == 'Alabama' || name == 'Texas' || name == 'Colorado' || name == 'Florida' || name == 'North Carolina' || name == 'California') {
+    return true
+  }
+}
+
 let stateOptions = {
   style: stateStyle,
-  onEachFeature: createPopup
+  onEachFeature: createPopup,
+  filter: stateFilter
 }
 
 L.geoJSON(demographics, stateOptions).addTo(Finalmap)
