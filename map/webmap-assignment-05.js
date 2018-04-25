@@ -46,4 +46,5 @@ let stateOptions = {
   style: stateStyle,
   onEachFeature: createPopup
 }
+
 L.geoJSON(demographics, stateOptions).addTo(Ryanmap)
