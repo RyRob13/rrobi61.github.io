@@ -67,7 +67,7 @@ let stateStyle = function (state) {
 let createPopup = function (state, layer) {
   let name = state.properties.STATE_NAME
   let population = state.properties.POPULATION
-  layer.bindPopup('Poulation of ' + name + ': ' + population + '<br>Largest state (California): 38986171')
+  layer.bindPopup('Population of ' + name + ': ' + population + '<br>Largest state (California): 38986171')
 }
 
 function stateFilter (state) {
